@@ -29,4 +29,10 @@ describe("Stanton", function() {
 
     assert.equal('east', robot.direction);
   });
+
+  it("Should report correctly", function() {
+    var robot = Stanton.place(0, 0, "north");
+
+    assert.equal("0,0,NORTH", Stanton.report(robot));
+  });
 });
