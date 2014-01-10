@@ -1,4 +1,4 @@
-var Stanton = require("../lib/stanton.js").Stanton;
+var Stanton = require("../lib/stanton.js");
 var assert  = require("assert");
 
 describe("Stanton", function() {
@@ -7,10 +7,26 @@ describe("Stanton", function() {
   });
 
   it("Should return a valid object", function() {
-    var robot = new Stanton(0, 0, "north");
+    var robot = Stanton.place(0, 0, "north");
 
     assert.equal(0, robot.x);
     assert.equal(0, robot.y);
     assert.equal("north", robot.direction);
+  });
+
+  it("Should turn left correctly", function() {
+    var robot = Stanton.place(0, 0, "north");
+
+    Stanton.left(robot);
+
+    assert.equal('west', robot.direction);
+  });
+
+  it("Should turn right correctly", function() {
+    var robot = Stanton.place(0, 0, "north");
+
+    Stanton.right(robot);
+
+    assert.equal('east', robot.direction);
   });
 });
