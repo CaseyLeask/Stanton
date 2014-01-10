@@ -1,0 +1,21 @@
+{
+  "name": "stanton",
+  "version": "0.0.0",
+  "description": "A robot simulator for a coding challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CaseyLeask/Stanton.git"
+  },
+  "author": "Casey Leask",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CaseyLeask/Stanton/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.0"
+  }
+}
