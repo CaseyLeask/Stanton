@@ -15,6 +15,24 @@ describe("Stanton", function() {
     expect(robot.direction).to.equal("north");
   });
 
+  it("Should validate x coordinate", function() {
+    expect(function() {
+      Stanton.place(-1, 0, "north");
+    }).to.throw("x coordinate is not valid");
+  });
+
+  it("Should validate y coordinate", function() {
+    expect(function() {
+      Stanton.place(0, -1, "north");
+    }).to.throw("y coordinate is not valid");
+  });
+
+  it("Should validate direction", function() {
+    expect(function() {
+      Stanton.place(0, 0, "invalid");
+    }).to.throw("direction is not valid");
+  });
+
   it("Should turn left correctly", function() {
     Stanton.left(robot);
 
@@ -30,8 +48,6 @@ describe("Stanton", function() {
   it("Should report correctly", function() {
     expect(Stanton.report(robot)).to.equal("0,0,NORTH");
   });
-
-  it("Should not report robots with bad coordinates")
 
   it("Should move correctly", function() {
     Stanton.move(robot);
