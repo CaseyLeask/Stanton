@@ -50,6 +50,7 @@ test_files.forEach(function(file) {
 
   line_reader.on('end', function(line) {
     ts.end();
+    process.stdout.write(file + "\n");
     ts.pipe(process.stdout);
   });
 });
