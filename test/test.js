@@ -1,78 +1,73 @@
 var Stanton = require("../lib/stanton.js");
-var assert  = require("assert");
+  expect  = require('chai').expect;
 
 describe("Stanton", function() {
-  it("Should exist", function() {
-    assert.equal(true, !!Stanton);
+  var robot;
+
+  beforeEach(function() {
+    robot = Stanton.place(0, 0, "north");
   });
 
   it("Should return a valid object", function() {
-    var robot = Stanton.place(0, 0, "north");
-
-    assert.equal(0, robot.x);
-    assert.equal(0, robot.y);
-    assert.equal("north", robot.direction);
+    expect(robot).to.be.a('Object');
+    expect(robot.x).to.equal(0);
+    expect(robot.y).to.equal(0);
+    expect(robot.direction).to.equal("north");
   });
 
   it("Should turn left correctly", function() {
-    var robot = Stanton.place(0, 0, "north");
-
     Stanton.left(robot);
 
-    assert.equal('west', robot.direction);
+    expect(robot.direction).to.equal("west");
   });
 
   it("Should turn right correctly", function() {
-    var robot = Stanton.place(0, 0, "north");
-
     Stanton.right(robot);
 
-    assert.equal('east', robot.direction);
+    expect(robot.direction).to.equal("east");
   });
 
   it("Should report correctly", function() {
-    var robot = Stanton.place(0, 0, "north");
-
-    assert.equal("0,0,NORTH", Stanton.report(robot));
+    expect(Stanton.report(robot)).to.equal("0,0,NORTH");
   });
 
-  it("Should move correctly", function() {
-    var robot = Stanton.place(0, 0, "north");
+  it("Should not report robots with bad coordinates")
 
+  it("Should move correctly", function() {
     Stanton.move(robot);
 
-    assert.equal("0,1,NORTH", Stanton.report(robot));
+    expect(Stanton.report(robot)).to.equal("0,1,NORTH");
   });
 
   it("Should not run over the north edge", function() {
-    var robot = Stanton.place(0, 4, "north");
+    robot = Stanton.place(0, 4, "north");
 
     Stanton.move(robot);
 
-    assert.equal("0,4,NORTH", Stanton.report(robot));
+    expect(Stanton.report(robot)).to.equal("0,4,NORTH");
   });
 
   it("Should not run over the east edge", function() {
-    var robot = Stanton.place(4, 0, "east");
+    robot = Stanton.place(4, 0, "east");
 
     Stanton.move(robot);
 
-    assert.equal("4,0,EAST", Stanton.report(robot));
+    expect(Stanton.report(robot)).to.equal("4,0,EAST");
   });
 
   it("Should not run over the south edge", function() {
-    var robot = Stanton.place(0, 0, "south");
+    robot = Stanton.place(0, 0, "south");
 
     Stanton.move(robot);
 
-    assert.equal("0,0,SOUTH", Stanton.report(robot));
+    expect(Stanton.report(robot)).to.equal("0,0,SOUTH");
   });
 
   it("Should not run over the west edge", function() {
-    var robot = Stanton.place(0, 4, "west");
+    robot = Stanton.place(0, 4, "west");
 
     Stanton.move(robot);
 
-    assert.equal("0,4,WEST", Stanton.report(robot));
+    expect(Stanton.report(robot)).to.equal("0,4,WEST");
   });
 });

@@ -16,7 +16,8 @@
     "url": "https://github.com/CaseyLeask/Stanton/issues"
   },
   "devDependencies": {
-    "mocha": "~1.17.0"
+    "mocha": "~1.17.0",
+    "chai": "~1.8.1"
   },
   "dependencies": {
     "glob": "~3.2.8",
