@@ -30,7 +30,7 @@ test_files.forEach(function(file) {
         Stanton.right(robot);
         break;
       case 'REPORT':
-        ts.push(Stanton.report(robot));
+        ts.push(Stanton.report(robot) + "\n");
         break;
     }
     callback();
