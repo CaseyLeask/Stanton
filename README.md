@@ -2,6 +2,7 @@ Stanton
 =======
 
 A robot simulator written in Javascript
+Install the dependencies with ```npm install```.
 
 Tests
 =====
